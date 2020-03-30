@@ -19,15 +19,19 @@ public class OO5CircularDoubleLinkedList {
 		linkedList.travelCircularDoubleLinkedList();
 		System.out.println("-------------------------");
 		linkedList.traverseReverseDoubleLinkedList();
+		System.out.println("OO5CircularDoubleLinkedList.main(): LAST:"+linkedList.last);
 		System.out.println("-----DELETE 1--------------------");
 		linkedList.deleteNode(0);
 		linkedList.travelCircularDoubleLinkedList();
+		System.out.println("OO5CircularDoubleLinkedList.main(): LAST:"+linkedList.last);
 		System.out.println("-----DELETE 2--------------------");
 		linkedList.deleteNode(linkedList.last);
 		linkedList.travelCircularDoubleLinkedList();
+		System.out.println("OO5CircularDoubleLinkedList.main(): LAST:"+linkedList.last);
 		System.out.println("-----DELETE 3--------------------");
-		linkedList.deleteNode(3);
+		linkedList.deleteNode(2);
 		linkedList.travelCircularDoubleLinkedList();
+		System.out.println("OO5CircularDoubleLinkedList.main(): LAST:"+linkedList.last);
 		System.out.println("-----DELETE 4--------------------");
 		linkedList.deleteEntireLinkedList();
 		linkedList.travelCircularDoubleLinkedList();
@@ -106,6 +110,10 @@ public class OO5CircularDoubleLinkedList {
 	}
 	
 	private void travelCircularDoubleLinkedList() {
+		if(head==null || tail ==null) {
+			System.out.println("OO5CircularDoubleLinkedList.travelCircularDoubleLinkedList(): LL is empty.");
+			return;
+		}
 		OO5CircularDoubleLinkedListNode currNode = head;//startingnode
 		//System.out.println("OO5CircularDoubleLinkedList.travelDoubleLinkedList(): 1:" + currNode.getValue());
 		while(currNode!=tail) {
@@ -143,16 +151,18 @@ public class OO5CircularDoubleLinkedList {
 				head=head.getNext();
 				tail.setNext(head);//new head
 			}
+			last--;
 		} else if (location == last) {
 			OO5CircularDoubleLinkedListNode currNode =null;
-			for (int i = 0; i < last-1; i++) {//navigate to last but 2 i.e. last-2. Since then you will get next node of it which will be (last-1)the node.
+			for (int i = 0; i < last; i++) {//navigate to last but 2 i.e. last-2. Since then you will get next node of it which will be (last-1)the node.
 				if (i==0)
 					currNode = head;
-				else if (i != last-1)
+				else 
 					currNode = currNode.getNext();
 			}
 			currNode.setNext(head);
 			tail = currNode;
+			last--;
 		} else {
 			OO5CircularDoubleLinkedListNode currNode = null;
 			for (int i = 0; i < location; i++) {//navigate to last but two
@@ -163,11 +173,13 @@ public class OO5CircularDoubleLinkedList {
 			}
 			currNode.setNext(currNode.getNext().getNext());
 			currNode.getNext().setPrevious(currNode);
+			last--;
 		}
 	}
 	
 	private void deleteEntireLinkedList() {
 		head = null;
 		tail = null;
+		last=-1;
 	}
 }
