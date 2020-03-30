@@ -1,0 +1,16 @@
+package com.bchandra.datastructure;
+
+public class OO2SingleLinkedList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	Integer head = null;
+	Integer tail = null;
+
+	OO2SingleLinkedListNode node = null;
+	
+
+}

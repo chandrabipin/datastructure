@@ -1,0 +1,7 @@
+package com.bchandra.datastructure;
+
+public class OO2SingleLinkedListNode {
+
+	Integer next = null;
+	Integer value = null;
+}

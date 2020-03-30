@@ -1,0 +1,19 @@
+package com.bchandra.datastructure;
+
+public class OO2SingleLinkedListNode {
+
+	private Integer next = null;
+	Integer value = null;
+	/**
+	 * @return the next
+	 */
+	public Integer getNext() {
+		return next;
+	}
+	/**
+	 * @param next the next to set
+	 */
+	public void setNext(Integer next) {
+		this.next = next;
+	}
+}

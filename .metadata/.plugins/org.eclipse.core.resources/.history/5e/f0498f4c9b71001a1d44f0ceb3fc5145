@@ -1,0 +1,49 @@
+package com.bchandra.datastructure;
+
+public class OO2SingleLinkedList {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	//Create a blank Single linked list
+	OO2SingleLinkedListNode head = null;
+	OO2SingleLinkedListNode tail = null;
+	OO2SingleLinkedListNode node = null;
+	
+	/**
+	 * create
+	 */
+	private void createLL(int nodeValue) {
+		node = new OO2SingleLinkedListNode();
+		node.setValue(nodeValue);
+		node.setNext(null);
+	}
+	/**
+	 * 01 insert at starting pos
+	 */
+
+	/**
+	 * 02 insert at last pos
+	 */
+
+	/**
+	 * 03 insert in between pos
+	 */
+	private void insert(OO2SingleLinkedListNode node, String location) {
+		if(location.equalsIgnoreCase("start")) {
+			initializeNewNode(10);
+			node.setNext(head.getNext());
+			head.setNext(null);
+			head = node;
+		} else if (location.equalsIgnoreCase("last")) {
+			initializeNewNode(10);
+			node.setNext(null);
+			tail.setNext(node);
+			tail = node;	
+		}
+	}
+	
+	
+}

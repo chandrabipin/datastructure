@@ -1,0 +1,84 @@
+package com.bchandra.datastructure;
+
+public class OO2SingleLinkedList {
+
+	public static void main(String[] args) {
+		OO2SingleLinkedList linkedList = new OO2SingleLinkedList();
+		linkedList.createFirstNodeInLinkedList(10);
+		linkedList.travelSingleLinkedList();
+		linkedList.insert(20, 0);
+		linkedList.travelSingleLinkedList();
+
+	}
+	
+	//Create a blank Single linked list
+	OO2SingleLinkedListNode head = null;
+	OO2SingleLinkedListNode tail = null;
+	 = null;
+	int last = -1;
+	/**
+	 * create
+	 */
+	private void createFirstNodeInLinkedList(int nodeValue) {
+		OO2SingleLinkedListNode node = new OO2SingleLinkedListNode();
+		node.setValue(nodeValue);
+		node.setNext(null);
+		
+		head = node;
+		tail = node;
+		last++;
+	}
+	/**
+	 * 01 insert at starting pos
+	 */
+
+	/**
+	 * 02 insert at last pos
+	 */
+
+	/**
+	 * 03 insert in between pos
+	 */
+	private void insert(int nodeValue, int location) {
+		if(location == 0) {
+			OO2SingleLinkedListNode node1 = new OO2SingleLinkedListNode();
+			node1.setValue(nodeValue);
+			node1.setNext(head);
+
+			head = node1;
+			last++;
+		} else if (location == last) {
+			OO2SingleLinkedListNode node2 = new OO2SingleLinkedListNode();
+			node2.setValue(nodeValue);
+			node2.setNext(null);
+
+			tail.setNext(node2);
+			tail = node2;	
+			last++;
+		} else {
+			OO2SingleLinkedListNode currNode = null;
+			for(int i=0;i<location;i++) {
+				if (i==0) 
+					currNode = head;
+				else
+					currNode = currNode.getNext();
+
+				OO2SingleLinkedListNode node3 = new OO2SingleLinkedListNode();
+				//node = new OO2SingleLinkedListNode();
+				node3.setValue(nodeValue);
+				node3.setNext(currNode.getNext());
+				currNode.setNext(node3);				
+			}
+		}
+	}
+	
+	private void travelSingleLinkedList() {
+		OO2SingleLinkedListNode currNode = head;//startingnode
+		while(currNode.getNext()!=null) {
+			System.out.println("OO2SingleLinkedList.travelSingleLinkedList(): " + currNode.getValue());
+			currNode = currNode.getNext();
+			//if(currNode==null) break;
+		}
+	}
+	
+}

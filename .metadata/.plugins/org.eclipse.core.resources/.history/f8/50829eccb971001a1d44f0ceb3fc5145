@@ -1,0 +1,117 @@
+package com.bchandra.datastructure;
+
+public class OO5CircularDoubleLinkedList {
+
+	public static void main(String[] args) {
+		OO5CircularDoubleLinkedList linkedList = new OO5CircularDoubleLinkedList();
+		linkedList.createFirstNodeInLinkedList(10);
+		linkedList.traverseDoubleLinkedList();
+		linkedList.insert(20, 0);
+		linkedList.insert(30, 0);
+		linkedList.insert(40, 0);
+		System.out.println("-------------------------");
+		linkedList.traverseDoubleLinkedList();
+		linkedList.insert(50, linkedList.last);
+		System.out.println("-------------------------");
+		linkedList.traverseDoubleLinkedList();
+		linkedList.insert(60, 2);
+		System.out.println("-------------------------");
+		linkedList.traverseDoubleLinkedList();
+		System.out.println("-------------------------");
+		linkedList.traverseReverseDoubleLinkedList();
+	}
+	
+	//Create a blank Double linked list
+	OO5CircularDoubleLinkedListNode head = null;
+	OO5CircularDoubleLinkedListNode tail = null;
+	int last = -1;
+	/**
+	 * create a blank node and set its value.
+	 * update its reference
+	 */
+	private void createFirstNodeInLinkedList(int nodeValue) {
+		OO5CircularDoubleLinkedListNode node = new OO5CircularDoubleLinkedListNode();
+		node.setValue(nodeValue);
+		node.setNext(node);//null
+		node.setPrevious(node);//null
+		
+		head = node;
+		tail = node;
+		last++;
+	}
+	/**
+	 * 01 insert at starting pos
+	 */
+
+	/**
+	 * 02 insert at last pos
+	 */
+
+	/**
+	 * 03 insert in between pos
+	 */
+	private void insert(int nodeValue, int location) {
+		if(location == 0) {
+			OO5CircularDoubleLinkedListNode node1 = new OO5CircularDoubleLinkedListNode();
+			node1.setValue(nodeValue);
+			node1.setNext(head);
+			node1.setPrevious(tail);
+
+			head.setPrevious(node1);
+			head = node1;
+			tail.setNext(head);//new head
+			last++;
+		} else if (location == last) {
+			OO5CircularDoubleLinkedListNode node2 = new OO5CircularDoubleLinkedListNode();
+			node2.setValue(nodeValue);
+			node2.setNext(head);
+			node2.setPrevious(tail);
+
+			tail.setNext(node2);
+			tail = node2;	
+			head.setPrevious(tail);//new tail
+			last++;
+		} else {
+			OO5CircularDoubleLinkedListNode currNode = null;
+			for(int i=0;i<location;i++) {//stop a node before
+				if (i==0)
+					currNode = head;
+				else
+					currNode = currNode.getNext();
+			}
+			OO5CircularDoubleLinkedListNode node3 = new OO5CircularDoubleLinkedListNode();
+			node3.setValue(nodeValue);
+			node3.setNext(currNode.getNext());
+			node3.setPrevious(currNode);
+
+			currNode.getNext().setPrevious(node3);
+			currNode.setNext(node3);
+			
+			last++;
+		}
+	}
+	
+	private void traverseDoubleLinkedList() {
+		OO5CircularDoubleLinkedListNode currNode = head;//startingnode
+		//System.out.println("OO5CircularDoubleLinkedList.travelDoubleLinkedList(): 1:" + currNode.getValue());
+		while(currNode!=tail) {
+			System.out.println("OO5CircularDoubleLinkedList.traverseDoubleLinkedList(): " + currNode.getValue());
+			currNode = currNode.getNext();
+			//if(currNode==null) break;
+		}
+		//Print if currNode=tail
+		System.out.println("OO5CircularDoubleLinkedList.traverseDoubleLinkedList(): " + currNode.getValue());
+		System.out.println("OO5CircularDoubleLinkedList.traverseDoubleLinkedList(): ");
+	}
+	private void traverseReverseDoubleLinkedList() {
+		OO5CircularDoubleLinkedListNode currNode = tail;//startingnode
+		//System.out.println("OO5CircularDoubleLinkedList.travelDoubleLinkedList(): 1:" + currNode.getValue());
+		while(currNode!=head) {
+			System.out.println("OO5CircularDoubleLinkedList.travelDoubleLinkedList(): " + currNode.getValue());
+			currNode = currNode.getPrevious();
+			//if(currNode==null) break;
+		}
+		//Print if currNode=tail
+		System.out.println("OO5CircularDoubleLinkedList.travelDoubleLinkedList(): " + currNode.getValue());
+	}
+}

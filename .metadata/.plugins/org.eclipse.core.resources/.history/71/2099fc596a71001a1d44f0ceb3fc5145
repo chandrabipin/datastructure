@@ -1,0 +1,33 @@
+package com.bchandra.datastructure;
+
+public class Array {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	
+	/**
+	 * Create an array
+	 */
+	public Array[] createABlankArray() {
+		Array[] arr = null;
+		return arr;
+	}
+	
+	/**
+	 * Initialize an Array
+	 */
+	public Array[] createAnArray(Array[] arr) {
+		if(arr == null) {
+			arr = new Array[]();
+		}
+		return arr;
+	}
+	
+	/**
+	 * Insert a value in an array
+	 */
+	
+}

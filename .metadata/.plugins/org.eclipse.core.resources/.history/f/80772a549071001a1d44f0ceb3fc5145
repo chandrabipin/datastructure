@@ -1,0 +1,37 @@
+package com.bchandra.datastructure;
+
+public class Array {
+
+	// Create a blank array
+	int[] intArr = null;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	/**
+	 * Create an Array object with the given size 
+	 */
+	public int[] createAnArray(Array[] arr, int size) {
+		if(arr == null) {
+			arr = new Array[size];
+		}
+		return arr;
+	}
+	
+	/**
+	 * Insert a value in an array
+	 */
+	public boolean insertIntoAnArray(Array[] arr, int aValue) {
+		String returnValue = "SUCCESS";
+		if(arr==null) {
+			returnValue = "FAILURE";
+		} else {
+			for (Array array : arr) {
+				
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,20 @@
+1585468643468	Rename type 'Array'
+1585469805829	Rename type 'IntegerArray'
+1585469835853	Rename compilation unit 'LinkedList.java'
+1585469967455	Encapsulate field 'next'
+1585469973981	Encapsulate field 'value'
+1585480535428	Copy compilation unit
+1585480560447	Copy compilation unit
+1585480575265	Rename type 'OO2CircularSingleLinkedList'
+1585480672280	Encapsulate field 'previous'
+1585481444692	Rename method 'createFirstNodeInLinkedList'
+1585481707786	Rename method 'createBlankNodeInLinkedList'
+1585481911066	Copy compilation unit
+1585483150187	Copy compilation unit
+1585483185053	Rename type 'OO2DoubleLinkedList'
+1585483197141	Rename type 'OO3DoubleLinkedListNode'
+1585484885468	Copy compilation unit
+1585484902618	Copy compilation unit
+1585484917496	Rename type 'OO4CircularDoubleLinkedListNode'
+1585490326401	Rename method 'travelSingleLinkedList'
+1585555853908	Delete element
