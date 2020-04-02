@@ -16,6 +16,13 @@ public class OO8BinaryTree {
 		binaryTree.insert(70);
 		binaryTree.insert(80);
 		binaryTree.insert(90);
+		System.out.println("Pre Order");
+		binaryTree.preOrderTraversal(binaryTree.root);
+		System.out.println("\nIn Order");
+		binaryTree.inOrderTraversal(binaryTree.root);
+		System.out.println("\nPost Order");
+		binaryTree.postOrderTraversal(binaryTree.root);
+		System.out.println("\nLevel Order");
 		binaryTree.levelOrderTraversal();
 		binaryTree.search(30);
 		binaryTree.search(300);
@@ -184,6 +191,10 @@ public class OO8BinaryTree {
 			previousNode = currentNode;//for root previousNode is null
 			currentNode = queue.remove();
 			if(currentNode.getLeftNode()==null) {
+				if(previousNode == null) {//i.e. only one node in the tree i.e. only root node
+					root=null;
+					return;
+				}
 				previousNode.setRightNode(null);
 				return;
 			}
@@ -221,7 +232,46 @@ public class OO8BinaryTree {
 		System.out.println();
 	}
 	
+	/**
+	 * delete entire node
+	 */
 	private void deleteEntireBineryTree() {
 		root=null;
+	}
+	
+	/**
+	 * pre-order traversal
+	 * uses recursion - which internally processes as stack
+	 */
+	void preOrderTraversal(OO8BinaryTreeNode node) {
+		if(node==null)
+			return;
+		System.out.print(node.getValue() + " ");
+		preOrderTraversal(node.getLeftNode());
+		preOrderTraversal(node.getRightNode());
+	}
+
+	/**
+	 * in-order traversal
+	 * uses recursion - which internally processes as stack
+	 */
+	void inOrderTraversal(OO8BinaryTreeNode node) {
+		if(node==null)
+			return;
+		inOrderTraversal(node.getLeftNode());
+		System.out.print(node.getValue() + " ");
+		inOrderTraversal(node.getRightNode());
+	}
+
+	/**
+	 * post-order traversal
+	 * uses recursion - which internally processes as stack
+	 */
+	void postOrderTraversal(OO8BinaryTreeNode node) {
+		if(node==null)
+			return;
+		postOrderTraversal(node.getLeftNode());
+		postOrderTraversal(node.getRightNode());
+		System.out.print(node.getValue() + " ");
 	}
 }
