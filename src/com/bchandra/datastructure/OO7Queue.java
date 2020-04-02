@@ -30,7 +30,7 @@ public class OO7Queue {
 	// If you reverse it the order of dequeue wll become O(n) - as using tail to dequeue - you have to reach  'last but 1 location' i.e. will need traversal - O(n)
 	
 	
-	private void enqueue(int aValue) {//at last
+	public void enqueue(int aValue) {//at last
 		OO2SingleLinkedListNode newNode = new OO2SingleLinkedListNode();
 		newNode.setValue(aValue);
 		if (head==null) {//insert at 0th pos
@@ -44,7 +44,7 @@ public class OO7Queue {
 		}
 	}
 	
-	private int dequeue() {//from start
+	public int dequeue() {//from start
 		if(head == null)
 			return -1;
 		OO2SingleLinkedListNode tempNode = null;
